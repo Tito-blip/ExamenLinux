@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Habilitar firewall ufw y bloquear trafico entrante
+sudo ufw enable
 sudo ufw default deny incoming
 
+# Habilitar puertos 22 (ssh) y 8080 (nginx)
 sudo ufw allow 22/tcp
 sudo ufw allow 8080/tcp
 
+# Ruta configuracion ssh
 SSH_CONFIG="/etc/ssh/sshd_config"
 
 # Buscar y reemplazar la línea PermitRootLogin, o agregarla si no existe
@@ -17,5 +21,6 @@ else
     echo "Se ha agregado PermitRootLogin 'no' a $SSH_CONFIG"
 fi
 
+# Cambiar permisos para archivo docker-compose.yml a 600
 sudo chmod 600 /opt/webapp/html/docker-compose.yml
 echo "Se ha establecido el permiso 600 en /opt/webapp/html/docker-compose.yml"
