@@ -81,6 +81,8 @@ cd ..
 Al terminar de ejecutar este script, el firewall ufw estara configurado para denegar conexiones entrantes, solo admitiendo conexiones al puerto 22 y 8080.
 Ademas, se deshabilita la opcion para login root a traves de ssh, y se cambian los permisos del archivo docker-compose.yml a 600.
 
+<br>
+
 ## Script 3: Backup
 
 Entrar a directorio maitenance
@@ -107,6 +109,10 @@ cd ..
 
 Con este script se ejecutara la comprension del directorio /opt/webapp/html, copiandolo localmente con rsync al directorio /var/backups/webapp. 
 Junto con esto, se entrega una funcionalidad teorica para copiar el archivo remotamente con scp.
+
+<br>
+
+## Justificación de Seguridad
 
 ## Screenshots
 
