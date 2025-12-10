@@ -42,15 +42,15 @@ Volver a directorio principal
 cd ..
 ```
 
-Despues de ejecutar este script, se habra instalado los siguientes paquetes:
+Después de ejecutar este script, se habrán instalado los siguientes paquetes:
 - Docker
 - Docker-compose
 - Git
 - Curl
 - Ufw
 
-Adicionalmente, se creara el directorio /opt/webapp/html, y el archivo index.html junto con la descarga del archivo docker-compose.yml (nginx).
-Tambien, creando un usuario sysadmin y grupo docker, asi como, un contenedor de nginx en docker.
+Adicionalmente, se creará el directorio /opt/webapp/html, y el archivo index.html junto con la descarga del archivo docker-compose.yml (nginx).
+También, creando un usuario sysadmin y grupo docker, así como un contenedor de nginx en docker.
 
 <br>
 
@@ -78,8 +78,8 @@ Volver a directorio principal
 cd ..
 ```
 
-Al terminar de ejecutar este script, el firewall ufw estara configurado para denegar conexiones entrantes, solo admitiendo conexiones al puerto 22 y 8080.
-Ademas, se deshabilita la opcion para login root a traves de ssh, y se cambian los permisos del archivo docker-compose.yml a 600.
+Al terminar de ejecutar este script, el firewall UFW estará configurado para denegar conexiones entrantes, solo admitiendo conexiones a los puertos 22 y 8080.
+Además, se deshabilita la opción para login root a través de ssh, y se cambian los permisos del archivo docker-compose.yml a 600.
 
 <br>
 
@@ -107,12 +107,20 @@ Volver a directorio principal
 cd ..
 ```
 
-Con este script se ejecutara la comprension del directorio /opt/webapp/html, copiandolo localmente con rsync al directorio /var/backups/webapp. 
-Junto con esto, se entrega una funcionalidad teorica para copiar el archivo remotamente con scp.
+Con este script se ejecutará la comprensión del directorio /opt/webapp/html, copiándolo localmente con rsync al directorio /var/backups/webapp. 
+Junto con esto, se entrega una funcionalidad teórica para copiar el archivo remotamente con scp.
 
 <br>
 
 ## Justificación de Seguridad
+
+Root Login: Dentro de una organización estructurada, siempre existirá un usuario con mayores privilegios (como alguien con acceso a sudo), pero aun así, nadie debería o necesitaría ingresar como root, ya que esto implica entregar permisos que ponen en riesgo la integridad del sistema. En caso de requerir privilegios superiores, siempre existirá la opción de utilizar su o sudo para un usuario administrador, sin tener que recurrir a una opción crítica a nivel del sistema operativo (menos aún si la conexión es a través de SSH).
+
+Port Filter: Similar al punto anterior, la mayoría de conexiones al servidor van dirigidas a un puerto específico, siempre con un propósito establecido, ya sea conectar a una página web (80 o 443), SSH (22) o, en su defecto, conectar con un contenedor o servicio, los cuales tienen sus puertos definidos de antemano. Desde el punto de vista de la ciberseguridad, es muy sencillo realizar un escaneo de puertos a cualquier servidor en la red, quedando al descubierto para cualquier atacante en caso de no definir reglas claras. Con la sencillez y facilidad que ofrece el sistema Linux o derivados para manejar el firewall, no existe razón para no realizarlo en la gran mayoría de servidores existentes. Y aun así siguen existiendo empresas u organizaciones que no prestan atención a estos simples puntos, dando lugar a ataques fácilmente prevenibles. 
+
+<br>
+
+>**NOTE:** A pesar de no haber sido utilizado, los contenedores docker deberian ser creados sin privilegios, en este caso para ejecutar nginx, se podria crear como **container rootless**
 
 ## Screenshots
 
