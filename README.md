@@ -3,7 +3,7 @@
 ## Inicio
 
 > [!IMPORTANT]  
-> **Scripts generados para sistemas que utilicen sistema de paquetes apt**
+> **Scripts generados para sistemas que utilicen sistema de paquetes apt.**
 <br>
 
 Primero es necesario clonar el repositorio
