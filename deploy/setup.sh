@@ -4,7 +4,7 @@ sudo apt update # Actualizar paquetes apt
 
 echo "Paquetes actualizados correctamente."
 
-PACKAGES=("git" "curl" "ufw" "docker-compose") # Lista de paquetes para instalar
+PACKAGES=("git" "curl" "ufw" "docker-compose" "docker.io") # Lista de paquetes para instalar
 
 for p in ${PACKAGES[@]}; do # Instalar paquetes con apt
 	echo "Instalando $p..."
