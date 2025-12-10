@@ -3,7 +3,7 @@
 ## Inicio
 
 > [!IMPORTANT]  
-> **Utilizar** ```sudo chmod +x script.sh``` **para hacer ejecutable el script.**
+> **Scripts generados para sistemas que utilicen sistema de paquetes apt**
 <br>
 Primero es necesario clonar el repositorio
 
