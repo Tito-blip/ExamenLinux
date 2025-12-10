@@ -23,6 +23,7 @@ cd ExamenLinux
 > [!CAUTION]
 > Los scripts deben ser ejecutados en el orden en que se presentan a continuación, de lo contrario no funcionarán. 
 <br>
+
 ## Script 1: Setup
 
 Entrar a directorio deploy
